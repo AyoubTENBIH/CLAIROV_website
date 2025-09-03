@@ -1778,3 +1778,44 @@ footer {
   object-fit: fill;
 
 }
+}
+@media (max-width: 590px) {
+    /* Container responsive */
+    .mobile-carousel {
+        display: block !important;
+        padding: 0 20px;
+        width: 100%;
+        overflow: visible; /* Permet l'affichage vertical */
+    }
+
+    /* Track vertical au lieu d'horizontal */
+    .mobile-carousel-track {
+        display: flex;
+        flex-direction: column; /* ← CHANGEMENT CLÉS : Vertical */
+        gap: 20px;
+        width: 100%;
+        /* Supprimer : transition, cursor grab */
+    }
+
+    /* Box adaptable à la largeur d'écran */
+    .mobile-box {
+        width: 100%; /* ← CHANGEMENT CLÉS : Largeur adaptable */
+        max-width: 100%;
+        background-color: #b2b2b298;
+        border-radius: 40px;
+        padding: 20px;
+        box-shadow: 8px 8px 32px rgba(16, 37, 58, 0.18);
+        text-align: center;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        /* Supprimer : flex: 0 0 280px */
+    }
+
+    /* Box réparation adaptée */
+    .mobile-box.repair {
+        width: 100%; /* ← CHANGEMENT CLÉS */
+        min-height: 280px;
+        padding: 15px;
+    }
+}
