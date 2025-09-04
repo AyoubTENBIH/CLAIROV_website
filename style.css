@@ -1608,8 +1608,9 @@ footer {
 .mainGoals .container .img-main img {
   max-width: 65%;
 }
-
-
+.produits{
+  display: none;
+}
 /* Section Produits */
 .produits .container {
   display: block;
