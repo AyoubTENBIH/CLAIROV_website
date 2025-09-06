@@ -118,7 +118,7 @@
 <div class="mobile-carousel">
     <div class="mobile-carousel-track">
         <div class="mobile-box">
-            <img src="images/Rectangle 39.png" alt="Service 1">
+            <img src="images/eyeexam.png" alt="Service 1">
             <h1>examen de la vue</h1>
             <p>Évaluation complète de votre vision pour détecter les problèmes visuels et prescrire les lunettes ou lentilles adaptées.</p>
         </div>
@@ -212,50 +212,150 @@
     </div>
 
     <div class="container-produits">
-      <div class="navigation">
-        <div class="nav-link">
-          <img src="images/tout.png" alt="">
-          tout
-        </div>
-        <div class="nav-link">
-          <img src="images/homme.png" alt="">
-          homme
-        </div>
-        <div class="nav-link">
-          <img src="images/femme.png" alt="">
-          femme
-        </div>
-        <div class="nav-link">
-          <img src="images/child.png" alt="">
-          enfant
-        </div>
+  <!-- Navigation pour desktop (masquée sur mobile) -->
+  <div class="navigation">
+    <div class="nav-link">
+      <img src="images/tout.png" alt="">
+      tout
+    </div>
+    <div class="nav-link">
+      <img src="images/homme.png" alt="">
+      homme
+    </div>
+    <div class="nav-link">
+      <img src="images/femme.png" alt="">
+      femme
+    </div>
+    <div class="nav-link">
+      <img src="images/child.png" alt="">
+      enfant
+    </div>
+  </div>
+
+  <!-- Contenu pour desktop -->
+  <div class="box-content desktop-content" id="box-content">
+    <div class="box" data-category="homme">
+      <img src="images/homme1.jpg" alt="">
+      <h1>apollo</h1>
+    </div>
+    <div class="box" data-category="femme">
+      <img src="images/femme1.jpg" alt="">
+      <h1>polarized</h1>
+    </div>
+    <div class="box" data-category="enfant">
+      <img src="images/enfant1.jpg" alt="">
+      <h1>apollo</h1>
+    </div>
+    <div class="box" data-category="homme">
+      <img src="images/homme2.jpg" alt="">
+      <h1>val d'or</h1>
+    </div>
+    <div class="box" data-category="femme">
+      <img src="images/femme2.jpg" alt="">
+      <h1>nature</h1>
+    </div>
+    <div class="box" data-category="enfant">
+      <img src="images/enfant2.jpg" alt="">
+      <h1>confort</h1>
+    </div>
+  </div>
+
+  <!-- Contenu organisé par catégories pour mobile -->
+  <div class="mobile-content">
+    <!-- Bloc Femmes -->
+    <div class="category-block">
+      <div class="category-title">
+        <img src="images/femme.png" alt="">
+        femmes
       </div>
-      <div class="box-content" id="box-content">
-        <div class="box" data-category="homme">
-          <img src="images/produit-1.png" alt="">
+      <div class="category-grid">
+        <div class="box">
+          <img src="images/femme1.jpg" alt="">
           <h1>apollo</h1>
         </div>
-        <div class="box" data-category="femme">
-          <img src="images/produit-2.png" alt="">
-          <h1>polarized</h1>
-        </div>
-        <div class="box" data-category="enfant">
-          <img src="images/produit-3.png" alt="">
+        <div class="box">
+          <img src="images/femme2.jpg" alt="">
           <h1>apollo</h1>
         </div>
-        <div class="box" data-category="homme">
-          <img src="images/produit-4.png" alt="">
+        <div class="box">
+          <img src="images/femme3.jpg" alt="">
           <h1>val d'or</h1>
         </div>
-        <div class="box" data-category="femme">
-          <img src="images/produit-5.png" alt="">
-          <h1>nature</h1>
+        <div class="box">
+          <img src="images/femme4.jpg" alt="">
+          <h1>nature color</h1>
         </div>
-        <div class="box" data-category="enfant">
-          <img src="images/produit-6.png" alt="">
-          <h1>confort</h1>
+        <div class="box">
+          <img src="images/femme5.jpg" alt="">
+          <h1>nature color</h1>
+      </div>
+      <div class="box">
+          <img src="images/femme6.jpg" alt="">
+          <h1>nature color</h1>
+        </div>
+    </div>
+
+    <!-- Bloc Hommes -->
+    <div class="category-block">
+      <div class="category-title">
+        <img src="images/homme.png" alt="">
+        hommes
+      </div>
+      <div class="category-grid">
+        <div class="box">
+          <img src="images/homme1.jpg" alt="">
+          <h1>apollo</h1>
+        </div>
+        <div class="box">
+          <img src="images/homme2.jpg" alt="">
+          <h1>apollo</h1>
+        </div>
+        <div class="box">
+          <img src="images/homme3.jpg" alt="">
+          <h1>val d'or</h1>
+        </div>
+        <div class="box">
+          <img src="images/homme4.jpg" alt="">
+          <h1>nature color</h1>
         </div>
       </div>
+    </div>
+
+    <!-- Bloc enfants -->
+    <div class="category-block">
+      <div class="category-title">
+        <img src="images/child.png" alt="">
+        enfants
+      </div>
+      <div class="category-grid">
+        <div class="box">
+          <img src="images/enfant1.jpg" alt="">
+          <h1>apollo</h1>
+        </div>
+        <div class="box">
+          <img src="images/enfant2.jpg" alt="">
+          <h1>apollo</h1>
+        </div>
+        <div class="box">
+          <img src="images/enfant3.jpg" alt="">
+          <h1>val d'or</h1>
+        </div>
+        <div class="box">
+          <img src="images/enfant4.jpg" alt="">
+          <h1>nature color</h1>
+        </div>
+        <div class="box">
+          <img src="images/enfant5.jpg" alt="">
+          <h1>nature color</h1>
+        </div>
+        <div class="box">
+          <img src="images/enfant6.jpg" alt="">
+          <h1>nature color</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     </div>
@@ -947,6 +1047,356 @@
         document.addEventListener('DOMContentLoaded', () => {
             new MobileServicesCarousel();
         });
+        /**
+ * Carousel Mobile Robuste pour .img-part
+ * Fonctionne uniquement sur mobile (max-width: 590px)
+ * Le container garde sa largeur complète, seules les boxes bougent
+ */
+
+class RobustMobileImgCarousel {
+  constructor() {
+    this.isMobile = window.innerWidth <= 590;
+    if (!this.isMobile) return;
+    
+    this.container = document.querySelector('.produits .container .img-part');
+    this.boxes = Array.from(document.querySelectorAll('.produits .container .img-part .box'));
+    
+    if (!this.container || this.boxes.length === 0) {
+      console.warn('Carousel: Container ou boxes introuvables');
+      return;
+    }
+    
+    // Variables de contrôle du drag
+    this.isDragging = false;
+    this.startX = 0;
+    this.startY = 0;
+    this.currentTranslate = 0;
+    this.prevTranslate = 0;
+    this.animationId = null;
+    this.currentIndex = 0;
+    
+    // Configuration
+    this.slideWidth = 0;
+    this.maxIndex = this.boxes.length - 1;
+    this.dragThreshold = 50; // Distance minimale pour déclencher le slide
+    this.velocityThreshold = 0.5; // Vitesse minimale pour slide rapide
+    
+    // Variables pour calcul de vélocité
+    this.lastMoveTime = 0;
+    this.lastMoveX = 0;
+    this.velocity = 0;
+    
+    this.init();
+  }
+  
+  init() {
+    try {
+      this.setupDOM();
+      this.calculateDimensions();
+      this.bindEvents();
+      this.createIndicators();
+      
+      console.log('Carousel mobile initialisé avec succès');
+    } catch (error) {
+      console.error('Erreur lors de l\'initialisation du carousel:', error);
+    }
+  }
+  
+  setupDOM() {
+    // Créer le track qui va contenir et déplacer les boxes
+    const track = document.createElement('div');
+    track.className = 'carousel-track';
+    
+    // Déplacer toutes les boxes dans le track
+    this.boxes.forEach(box => {
+      track.appendChild(box);
+    });
+    
+    // Vider le container et ajouter le track
+    this.container.innerHTML = '';
+    this.container.appendChild(track);
+    
+    this.track = track;
+  }
+  
+  calculateDimensions() {
+    // Attendre que le DOM soit rendu
+    requestAnimationFrame(() => {
+      if (this.boxes[0]) {
+        const boxStyle = window.getComputedStyle(this.boxes[0]);
+        const boxWidth = this.boxes[0].offsetWidth;
+        const marginRight = parseInt(boxStyle.marginRight) || 20;
+        
+        this.slideWidth = boxWidth + marginRight;
+        
+        console.log('Dimensions calculées:', {
+          boxWidth,
+          marginRight,
+          slideWidth: this.slideWidth,
+          totalBoxes: this.boxes.length
+        });
+      }
+    });
+  }
+  
+  bindEvents() {
+    // Événements souris
+    this.track.addEventListener('mousedown', this.handleStart.bind(this));
+    document.addEventListener('mousemove', this.handleMove.bind(this));
+    document.addEventListener('mouseup', this.handleEnd.bind(this));
+    
+    // Événements tactile
+    this.track.addEventListener('touchstart', this.handleStart.bind(this), { passive: false });
+    document.addEventListener('touchmove', this.handleMove.bind(this), { passive: false });
+    document.addEventListener('touchend', this.handleEnd.bind(this));
+    
+    // Prévenir les comportements par défaut
+    this.track.addEventListener('dragstart', e => e.preventDefault());
+    this.track.addEventListener('selectstart', e => e.preventDefault());
+    
+    // Désactiver les clics pendant le drag
+    this.track.addEventListener('click', this.handleClick.bind(this));
+    
+    // Recalculer lors du redimensionnement
+    window.addEventListener('resize', this.debounce(this.handleResize.bind(this), 150));
+  }
+  
+  createIndicators() {
+    if (this.boxes.length <= 1) return;
+    
+    const indicatorsContainer = document.createElement('div');
+    indicatorsContainer.className = 'img-part-indicators';
+    
+    this.boxes.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.className = `dot ${index === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => this.goToSlide(index));
+      indicatorsContainer.appendChild(dot);
+    });
+    
+    // Insérer après le container
+    this.container.parentNode.insertBefore(indicatorsContainer, this.container.nextSibling);
+    this.indicators = Array.from(indicatorsContainer.querySelectorAll('.dot'));
+  }
+  
+  handleStart(e) {
+    if (!this.isMobile) return;
+    
+    this.isDragging = true;
+    this.container.classList.add('dragging');
+    
+    const point = e.touches ? e.touches[0] : e;
+    this.startX = point.clientX;
+    this.startY = point.clientY;
+    this.lastMoveTime = Date.now();
+    this.lastMoveX = this.startX;
+    
+    // Arrêter l'animation CSS
+    this.track.style.transition = 'none';
+    
+    // Démarrer l'animation de rendu
+    this.animationId = requestAnimationFrame(this.animate.bind(this));
+    
+    e.preventDefault();
+  }
+  
+  handleMove(e) {
+    if (!this.isDragging || !this.isMobile) return;
+    
+    const point = e.touches ? e.touches[0] : e;
+    const currentX = point.clientX;
+    const currentY = point.clientY;
+    
+    // Vérifier si c'est un mouvement horizontal (pas vertical)
+    const deltaX = currentX - this.startX;
+    const deltaY = currentY - this.startY;
+    
+    if (Math.abs(deltaX) < Math.abs(deltaY) && Math.abs(deltaY) > 10) {
+      // Mouvement vertical détecté, permettre le scroll normal
+      return;
+    }
+    
+    // Calculer la vélocité
+    const now = Date.now();
+    if (now - this.lastMoveTime > 0) {
+      this.velocity = (currentX - this.lastMoveX) / (now - this.lastMoveTime);
+      this.lastMoveTime = now;
+      this.lastMoveX = currentX;
+    }
+    
+    // Calculer la nouvelle position
+    this.currentTranslate = this.prevTranslate + deltaX;
+    
+    // Appliquer une résistance aux bords
+    const minTranslate = -(this.slideWidth * this.maxIndex);
+    const maxTranslate = 0;
+    
+    if (this.currentTranslate > maxTranslate) {
+      const overflow = this.currentTranslate - maxTranslate;
+      this.currentTranslate = maxTranslate + overflow * 0.3;
+    } else if (this.currentTranslate < minTranslate) {
+      const overflow = minTranslate - this.currentTranslate;
+      this.currentTranslate = minTranslate - overflow * 0.3;
+    }
+    
+    e.preventDefault();
+  }
+  
+  handleEnd(e) {
+    if (!this.isDragging || !this.isMobile) return;
+    
+    this.isDragging = false;
+    this.container.classList.remove('dragging');
+    
+    cancelAnimationFrame(this.animationId);
+    
+    // Calculer la direction et la distance
+    const deltaX = this.currentTranslate - this.prevTranslate;
+    const absDeltaX = Math.abs(deltaX);
+    const absVelocity = Math.abs(this.velocity);
+    
+    // Déterminer s'il faut changer de slide
+    let shouldSlide = false;
+    let direction = 0;
+    
+    if (absDeltaX > this.dragThreshold || absVelocity > this.velocityThreshold) {
+      shouldSlide = true;
+      direction = deltaX > 0 ? -1 : 1; // Direction opposée au mouvement
+    }
+    
+    if (shouldSlide) {
+      const newIndex = Math.max(0, Math.min(this.maxIndex, this.currentIndex + direction));
+      this.goToSlide(newIndex);
+    } else {
+      // Revenir à la position actuelle
+      this.goToSlide(this.currentIndex);
+    }
+  }
+  
+  handleClick(e) {
+    // Si on vient de faire un drag, empêcher le clic
+    if (Math.abs(this.currentTranslate - this.prevTranslate) > 5) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }
+  
+  goToSlide(index) {
+    if (index < 0 || index > this.maxIndex) return;
+    
+    this.currentIndex = index;
+    this.currentTranslate = -index * this.slideWidth;
+    this.prevTranslate = this.currentTranslate;
+    
+    // Appliquer la transition
+    this.track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+    this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+    
+    // Mettre à jour les indicateurs
+    this.updateIndicators();
+    
+    // Supprimer la transition après l'animation
+    setTimeout(() => {
+      if (this.track) {
+        this.track.style.transition = '';
+      }
+    }, 600);
+  }
+  
+  updateIndicators() {
+    if (!this.indicators) return;
+    
+    this.indicators.forEach((dot, index) => {
+      dot.classList.toggle('active', index === this.currentIndex);
+    });
+  }
+  
+  animate() {
+    if (this.track) {
+      this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+    }
+    
+    if (this.isDragging) {
+      this.animationId = requestAnimationFrame(this.animate.bind(this));
+    }
+  }
+  
+  handleResize() {
+    const newIsMobile = window.innerWidth <= 590;
+    
+    if (newIsMobile !== this.isMobile) {
+      this.isMobile = newIsMobile;
+      
+      if (this.isMobile) {
+        this.calculateDimensions();
+        this.goToSlide(0);
+      }
+    } else if (this.isMobile) {
+      this.calculateDimensions();
+      this.goToSlide(this.currentIndex);
+    }
+  }
+  
+  // Utility function pour debounce
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+  
+  // Méthodes publiques
+  destroy() {
+    if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
+    }
+    
+    // Supprimer les event listeners
+    window.removeEventListener('resize', this.handleResize);
+    
+    // Supprimer les indicateurs
+    const indicators = document.querySelector('.img-part-indicators');
+    if (indicators) {
+      indicators.remove();
+    }
+  }
+}
+
+// Initialisation et gestion globale
+let mobileImgCarousel = null;
+
+function initMobileImgCarousel() {
+  // Détruire l'instance existante
+  if (mobileImgCarousel) {
+    mobileImgCarousel.destroy();
+    mobileImgCarousel = null;
+  }
+  
+  // Créer une nouvelle instance si on est en mobile
+  if (window.innerWidth <= 590) {
+    mobileImgCarousel = new RobustMobileImgCarousel();
+  }
+}
+
+// Initialisation au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM chargé, initialisation du carousel mobile...');
+  initMobileImgCarousel();
+});
+
+// Réinitialisation lors du redimensionnement
+window.addEventListener('resize', () => {
+  clearTimeout(window.mobileCarouselResizeTimeout);
+  window.mobileCarouselResizeTimeout = setTimeout(initMobileImgCarousel, 200);
+});
+
+// Export pour utilisation externe si nécessaire
+window.RobustMobileImgCarousel = RobustMobileImgCarousel;
 
     </script>
 

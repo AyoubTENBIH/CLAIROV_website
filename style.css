@@ -259,6 +259,7 @@ img.vector {
   width: 70%;
   margin-left: 50%;
   transform: translateX(-50%);
+  margin-top: 0;
 }
 /* NOUVEAU CSS POUR LE CAROUSEL MOBILE UNIQUEMENT */
 .mobile-carousel {
@@ -1114,7 +1115,13 @@ img.vector {
   color: #333;
   height: 35px;
 }
+.desktop-content {
+  display: grid;
+}
 
+.mobile-content {
+  display: none;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .vision-mission {
@@ -1447,9 +1454,7 @@ footer {
   .container .right {
     display: none !important;
   }
-  .services{
-    margin-top: 220px;
-  }
+
   .container{
     padding: 0;
   }
@@ -1458,7 +1463,7 @@ footer {
   .mobile-carousel {
     display: block !important;
     overflow: hidden;
-    padding: 0 20px;
+    padding: 10px 20px;
     width: 100%;
   }
 
@@ -1477,12 +1482,12 @@ footer {
   /* Style uniforme pour toutes les boxes (comme .box-left) */
   .mobile-box {
     flex: 0 0 280px;
-    background-color: #b2b2b298;
+    background-color: #E4E6EB;
     border-radius: 40px;
     padding: 20px;
     box-shadow: 8px 8px 32px rgba(16, 37, 58, 0.18);
     text-align: center;
-    min-height: 300px;
+    min-height: 280px;
     display: flex;
     flex-direction: column;
   }
@@ -1507,7 +1512,7 @@ footer {
     text-align: left;
     line-height: 1.5;
     flex-grow: 1;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
 
   /* Style spécial pour la box réparations (4ème) */
@@ -1552,12 +1557,12 @@ footer {
   }
 
   .mainGoals {
-  padding: 20px 40px;
+  padding: 20px;
+  margin-top: 40px;
 }
 .mainGoals .container {
   width: 100%;
   display: block;
-  gap: 30px;
   padding:20px 20px 0 20px;
 }
 .mainGoals .container .text-main {
@@ -1579,7 +1584,7 @@ footer {
   display: flex;
   justify-content: center;
   margin-top: 15px;
-  gap: 20px;
+  gap: 10px;
   margin-left: 0px;
 }
 
@@ -1596,7 +1601,7 @@ footer {
 }
 .mainGoals .container .text-main .goal-boxes .left-part .box h2,
 .mainGoals .container .text-main .goal-boxes .right-part .box h2 {
-  font-size: 12px;
+  font-size: 10px;
   color: #033144;
 }
 .mainGoals .container .img-main {
@@ -1609,7 +1614,8 @@ footer {
   max-width: 65%;
 }
 .produits{
-  display: none;
+  display: block;
+  width: 100%;
 }
 /* Section Produits */
 .produits .container {
@@ -1647,136 +1653,285 @@ footer {
 .produits .container .text-part .cta:hover i {
   background: white;
 }
-.produits .container .img-part {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-.produits .container .img-part .box {
-  max-width: 200px;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-}
-.produits .container .img-part .box img {
-  width: 100%;
-  border-radius: 20px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.produits .container .img-part .box:hover img {
-  transform: scale(1.1);
-}
-.produits .container .img-part .box h1 {
-  position: absolute;
-  bottom: 20px;
-  font-size: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  display: inline-block;
-  background: rgba(206, 206, 206, 0.335);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 16px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  padding: 6px 10px;
-  text-align: center;
-}
-.produits .container .img-part .box i {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #a6e3d1;
-  padding: 10px;
-  border-radius: 50%;
-}
-.produits .container-produits {
-  margin-top: 40px;
-}
-.produits .container-produits .navigation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-left: 5%;
-  width: max-content;
-}
-.produits .container-produits .navigation .nav-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px #444 solid;
-  border-radius: 30px;
-  padding: 5px 25px;
-}
-.produits .container-produits .navigation .nav-link {
-  font-size: 16px;
-  font-weight: 50;
-  cursor: pointer;
-}
-.produits .container-produits .navigation .nav-link img {
-  width: 15px;
-}
-.produits .container-produits .navigation .nav-link:nth-child(3) img {
-  width: 7px;
-}
-.produits .container-produits .box-content {
-  display: grid;
-  gap: 50px;
-  margin-top: 40px;
-  grid-template-columns: repeat(
-    3,
-    minmax(250px, auto)
-  ); /* largeur min pour chaque box */
-  justify-content: center; /* centre la grille entière */
+/* Container principal - largeur complète, pas de mouvement */
+  .produits .container .img-part {
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+    display: block !important;
+    display: flex;
+    background: transparent;
+    margin-top: 30px;
+  }
+  
+  /* Track interne qui va bouger - contient toutes les boxes */
+  .produits .container .img-part .carousel-track {
+    display: flex !important;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+    width: max-content;
+    cursor: grab;
+  }
+  
+  .produits .container .img-part .carousel-track:active {
+    cursor: grabbing;
+  }
+  
+  /* Boxes individuelles */
+  .produits .container .img-part .box {
+    flex: 0 0 auto !important;
+    width: calc(100vw - 50px) !important;
+    max-width: 300px !important;
+    min-width: 280px !important;
+    margin-right: 20px !important;
+    border-radius: 30px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: white;
+  }
+  
+  /* Première box - margin left pour centrage */
+  .produits .container .img-part .box:first-child {
+    margin-left: 20px !important;
+  }
+  
+  /* Dernière box - margin right pour l'espacement final */
+  .produits .container .img-part .box:last-child {
+    margin-right: 20px !important;
+  }
+  
+  /* Images dans les boxes */
+  .produits .container .img-part .box img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 20px !important;
+    transition: transform 0.3s ease !important;
+    display: block;
+  }
+  
+  .produits .container .img-part .box:hover img {
+    transform: scale(1.05) !important;
+  }
+  
+  /* Titre sur l'image */
+  .produits .container .img-part .box h1 {
+    position: absolute !important;
+    bottom: 15px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 85% !important;
+    background: rgba(89, 89, 89, 0.523) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    text-align: center !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    margin: 0 !important;
+  }
+  
+  /* Icône flèche */
+  .produits .container .img-part .box i {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    background: #a6e3d1 !important;
+    color: #033144 !important;
+    padding: 10px !important;
+    border-radius: 50% !important;
+    font-size: 18px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .produits .container .img-part .box:hover i {
+    background: #033144 !important;
+    color: white !important;
+    transform: translateX(2px) !important;
+  }
+  
+  /* Indicateurs de position (optionnel) */
+  .img-part-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 0 20px;
+  }
+  
+  .img-part-indicators .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(3, 49, 68, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .img-part-indicators .dot.active {
+    background: #033144;
+    transform: scale(1.2);
+  }
+  
+  /* États pour désactiver les interactions pendant l'animation */
+  .produits .container .img-part.dragging * {
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+  
+  .produits .container .img-part.dragging .carousel-track {
+    transition: none !important;
+  }
+  
+  
+ .produits .container-produits {
+    margin-top: 20px;
+    padding: 0 15px;
+  }
+  
+  /* Masquer la navigation sur mobile */
+  .produits .container-produits .navigation {
+    display: none;
+  }
+  
+  /* Container principal pour les blocs de catégories */
+  .produits .container-produits .box-content {
+    display: block;
+    margin-top: 20px;
+    gap: 0;
+  }
+  
+  /* Bloc de catégorie */
+  .category-block {
+    margin-bottom: 30px;
+  }
+  
+  /* Titre de la catégorie */
+  .category-title {
+    font-size: 18px;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 15px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px #333 solid;
+    width: max-content;
+    border-radius: 20px;
+    padding:5px 20px;
+    margin-top: 20px;
+  }
+  
+  .category-title img {
+    width: 20px;
+    height: 20px;
+  }
+    .category-title img:nth-child(1) {
+    width: 15px;  
+    }
+  
+  /* Grid pour 2 colonnes d'images */
+  .category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 10px;
+  }
+  
+  /* Style pour chaque produit */
+  .category-grid .box {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(51, 51, 51, 0.3);
+    overflow: hidden;
+  }
+  
+  .category-grid .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
+  /* Titre du produit sur l'image */
+  .category-grid .box h1 {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: 300;
+    background: rgba(235, 224, 224, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 5px 15px;
+    width: 80%;
+    text-align: center;
+    border: 1px rgba(255, 255, 255, 0.6) solid;
+    font-size: 12px;
+    margin: 0;
+  }
+  
+  /* Masquer tous les produits par défaut sur mobile */
+  .box-content .box {
+    display: none;
+  }
+  
+  /* Afficher seulement les produits dans leur bloc de catégorie */
+  .category-grid .box {
+    display: block;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+   .desktop-content {
+    display: none;
+  }
+  
+  .mobile-content {
+    display: block;
+  }
+  
+  /* Réajuster le CSS du desktop-content pour éviter les conflits */
+  .produits .container-produits .box-content.desktop-content {
+    display: none !important;
+  }
 }
 
-.box-content .box {
-  flex: 1 1 calc(33.333% - 20px);
-  box-sizing: border-box;
-  width: 250px;
-  position: relative;
-  background-color: transparent;
-  border-radius: 40px;
-  box-shadow: 0 2px 10px rgba(51, 51, 51, 0.513);
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  opacity: 1;
-  transform: scale(1) translateY(0);
-  pointer-events: auto;
-}
-
-/* Etat caché */
-.box-content .box.hide {
-  opacity: 0;
-  transform: scale(0.9) translateY(20px);
-  pointer-events: none;
-}
-.produits .container-produits .box-content .box h1 {
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  color: white;
-  transform: translateX(-50%);
-  font-weight: 100;
-  display: inline-block;
-  background: rgba(235, 224, 224, 0.335);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 30px;
-  padding: 10px 40px;
-  width: 80%;
-  text-align: center;
-  border: 1px white solid;
-  font-size: 16px;
-}
-.produits .container-produits .box-content .box img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-
-}
-}   
+/* Responsive pour très petits écrans */
+  @media (max-width: 360px) {
+    .produits .container .img-part .box {
+      width: calc(100vw - 30px) !important;
+      min-width: 250px !important;
+    }
+    
+    .produits .container .img-part .box:first-child {
+      margin-left: 15px !important;
+    }
+    
+    .produits .container .img-part .box:last-child {
+      margin-right: 15px !important;
+    }
+    
+    .produits .container .img-part .box img {
+      height: 180px !important;
+    }
+    
+    .produits .container .img-part .box h1 {
+      font-size: 13px !important;
+      padding: 6px 10px !important;
+    }
+  }
