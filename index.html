@@ -285,14 +285,6 @@
           <img src="images/femme4.jpg" alt="">
           <h1>nature color</h1>
         </div>
-        <div class="box">
-          <img src="images/femme5.jpg" alt="">
-          <h1>nature color</h1>
-      </div>
-      <div class="box">
-          <img src="images/femme6.jpg" alt="">
-          <h1>nature color</h1>
-        </div>
     </div>
 
     <!-- Bloc Hommes -->
@@ -1397,6 +1389,576 @@ window.addEventListener('resize', () => {
 
 // Export pour utilisation externe si nécessaire
 window.RobustMobileImgCarousel = RobustMobileImgCarousel;
+
+
+
+class ResponsiveCarouselDragDrop {
+  constructor() {
+    this.container = document.querySelector('.contact-container');
+    this.sliderTrack = document.querySelector('.slider-track');
+    this.slides = document.querySelectorAll('.cont-elem');
+
+    if (!this.container || !this.sliderTrack || this.slides.length === 0) {
+      console.warn('Carousel elements not found');
+      return;
+    }
+
+    this.isDragging = false;
+    this.startX = 0;
+    this.currentTranslate = 0;
+    this.prevTranslate = 0;
+    this.animationId;
+    this.currentSlide = 0;
+
+    // Variables pour responsive
+    this.isMobile = window.innerWidth <= 768;
+    
+    this.calculateDimensions();
+    this.init();
+  }
+
+  calculateDimensions() {
+    this.isMobile = window.innerWidth <= 768;
+    
+    if (this.isMobile) {
+      // Mode mobile : une carte à la fois
+      const slideRect = this.slides[0].getBoundingClientRect();
+      const slideStyle = window.getComputedStyle(this.slides[0]);
+      const marginRight = parseInt(slideStyle.marginRight) || 0;
+      const gap = 20; // Gap défini dans le CSS mobile
+      
+      this.slideWidth = slideRect.width + gap;
+      this.maxSlides = this.slides.length - 1; // Dernière carte doit être complètement visible
+    } else {
+      // Mode desktop : 3 cartes visibles
+      this.slideWidth = this.slides[0].offsetWidth + 30;
+      this.maxSlides = this.slides.length - 3;
+    }
+
+    console.log('Carousel dimensions:', {
+      isMobile: this.isMobile,
+      slideWidth: this.slideWidth,
+      maxSlides: this.maxSlides,
+      totalSlides: this.slides.length
+    });
+  }
+
+  init() {
+    // Événements pour la souris
+    this.sliderTrack.addEventListener('mousedown', this.dragStart.bind(this));
+    document.addEventListener('mousemove', this.dragMove.bind(this));
+    document.addEventListener('mouseup', this.dragEnd.bind(this));
+
+    // Événements pour le tactile
+    this.sliderTrack.addEventListener('touchstart', this.dragStart.bind(this), { passive: true });
+    document.addEventListener('touchmove', this.dragMove.bind(this), { passive: false });
+    document.addEventListener('touchend', this.dragEnd.bind(this));
+
+    // Empêcher la sélection de texte pendant le drag
+    this.sliderTrack.addEventListener('selectstart', e => e.preventDefault());
+    this.sliderTrack.style.cursor = 'grab';
+
+    // Empêcher le clic sur les liens/boutons pendant le drag
+    this.slides.forEach(slide => {
+      const links = slide.querySelectorAll('a, .cta, button');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          if (this.isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        });
+      });
+    });
+
+    // Gérer le redimensionnement
+    window.addEventListener('resize', this.debounce(() => {
+      this.calculateDimensions();
+      this.setSlidePosition();
+    }, 250));
+  }
+
+  dragStart(e) {
+    this.isDragging = true;
+    this.sliderTrack.style.cursor = 'grabbing';
+    this.sliderTrack.style.transition = 'none';
+
+    this.startX = this.getPositionX(e);
+    this.animationId = requestAnimationFrame(this.animation.bind(this));
+
+    // Empêcher le scroll sur mobile
+    if (e.type === 'touchstart') {
+      e.preventDefault();
+    }
+  }
+
+  dragMove(e) {
+    if (!this.isDragging) return;
+
+    const currentPosition = this.getPositionX(e);
+    const diff = currentPosition - this.startX;
+    this.currentTranslate = this.prevTranslate + diff;
+
+    // Calculer les limites selon le mode
+    if (this.isMobile) {
+      // Mobile : permettre de voir toutes les cartes
+      const minTranslate = -this.slideWidth * this.maxSlides;
+      const maxTranslate = 0;
+
+      // Résistance plus faible aux bords pour mobile
+      if (this.currentTranslate > maxTranslate) {
+        this.currentTranslate = maxTranslate + (this.currentTranslate - maxTranslate) * 0.2;
+      } else if (this.currentTranslate < minTranslate) {
+        this.currentTranslate = minTranslate + (this.currentTranslate - minTranslate) * 0.2;
+      }
+    } else {
+      // Desktop : logique existante
+      const minTranslate = -this.slideWidth * this.maxSlides;
+      const maxTranslate = 0;
+
+      if (this.currentTranslate > maxTranslate) {
+        this.currentTranslate = maxTranslate + (this.currentTranslate - maxTranslate) * 0.3;
+      } else if (this.currentTranslate < minTranslate) {
+        this.currentTranslate = minTranslate + (this.currentTranslate - minTranslate) * 0.3;
+      }
+    }
+
+    // Empêcher le scroll vertical sur mobile
+    if (e.type === 'touchmove') {
+      e.preventDefault();
+    }
+  }
+
+  dragEnd() {
+    if (!this.isDragging) return;
+
+    this.isDragging = false;
+    this.sliderTrack.style.cursor = 'grab';
+    cancelAnimationFrame(this.animationId);
+
+    // Ajuster le seuil selon le mode
+    const threshold = this.isMobile ? this.slideWidth / 3 : this.slideWidth / 4;
+    const diff = this.currentTranslate - this.prevTranslate;
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0 && this.currentSlide > 0) {
+        this.currentSlide -= 1;
+      } else if (diff < 0 && this.currentSlide < this.maxSlides) {
+        this.currentSlide += 1;
+      }
+    }
+
+    this.setSlidePosition();
+  }
+
+  setSlidePosition() {
+    // Vérifier les limites
+    if (this.currentSlide < 0) this.currentSlide = 0;
+    if (this.currentSlide > this.maxSlides) this.currentSlide = this.maxSlides;
+
+    this.currentTranslate = -this.currentSlide * this.slideWidth;
+    this.prevTranslate = this.currentTranslate;
+
+    // Appliquer la transformation
+    this.sliderTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+    this.sliderTrack.style.transform = `translateX(${this.currentTranslate}px)`;
+
+    // Retirer la transition après l'animation
+    setTimeout(() => {
+      if (this.sliderTrack) {
+        this.sliderTrack.style.transition = '';
+      }
+    }, 600);
+  }
+
+  animation() {
+    this.sliderTrack.style.transform = `translateX(${this.currentTranslate}px)`;
+    if (this.isDragging) {
+      requestAnimationFrame(this.animation.bind(this));
+    }
+  }
+
+  getPositionX(e) {
+    return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+  }
+
+  // Méthodes publiques pour navigation externe
+  nextSlide() {
+    if (this.currentSlide < this.maxSlides) {
+      this.currentSlide++;
+      this.setSlidePosition();
+    }
+  }
+
+  prevSlide() {
+    if (this.currentSlide > 0) {
+      this.currentSlide--;
+      this.setSlidePosition();
+    }
+  }
+
+  goToSlide(index) {
+    if (index >= 0 && index <= this.maxSlides) {
+      this.currentSlide = index;
+      this.setSlidePosition();
+    }
+  }
+
+  // Utilitaire debounce
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+}
+
+// Instance globale
+let contactCarouselInstance = null;
+
+function initContactCarousel() {
+  // Nettoyer l'instance existante
+  if (contactCarouselInstance) {
+    // Pas de méthode destroy, on recrée simplement
+    contactCarouselInstance = null;
+  }
+  
+  // Créer une nouvelle instance
+  contactCarouselInstance = new ResponsiveCarouselDragDrop();
+}
+
+// Initialiser le carousel au chargement
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Initialisation du carousel contact responsive');
+  initContactCarousel();
+});
+
+// Réinitialiser lors du redimensionnement (avec debounce)
+let resizeContactTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeContactTimeout);
+  resizeContactTimeout = setTimeout(() => {
+    console.log('Redimensionnement - Réinitialisation carousel contact');
+    initContactCarousel();
+  }, 300);
+});
+
+/**
+ * CAROUSEL TÉMOIGNAGES - MOBILE UNIQUEMENT (≤590px)
+ * Classes uniques pour éviter conflits
+ */
+
+class TestimonialsCarousel {
+  constructor() {
+    // Vérification mobile
+    if (window.innerWidth > 590) {
+      console.log('TestimonialsCarousel: Écran trop large, carousel désactivé');
+      return;
+    }
+    
+    this.originalContainer = document.querySelector('.temoignages .tem-reviews');
+    this.originalTestimonials = document.querySelectorAll('.temoignages .tem-reviews .tem');
+    
+    if (!this.originalContainer || this.originalTestimonials.length === 0) {
+      console.warn('TestimonialsCarousel: Container .tem-reviews introuvable');
+      return;
+    }
+    
+    // Variables de contrôle
+    this.isDragging = false;
+    this.startX = 0;
+    this.currentX = 0;
+    this.translateX = 0;
+    this.currentIndex = 0;
+    this.slideWidth = 0;
+    this.totalSlides = this.originalTestimonials.length;
+    
+    // Configuration
+    this.dragThreshold = 70;
+    this.animationDuration = 500;
+    
+    console.log(`TestimonialsCarousel: Initialisation avec ${this.totalSlides} témoignages`);
+    this.init();
+  }
+  
+  init() {
+    try {
+      this.createCarouselStructure();
+      this.calculateDimensions();
+      this.bindEvents();
+      this.createDots();
+      
+      console.log('TestimonialsCarousel: Initialisé avec succès');
+    } catch (error) {
+      console.error('TestimonialsCarousel: Erreur lors de l\'initialisation:', error);
+    }
+  }
+  
+  createCarouselStructure() {
+    // Créer le wrapper du carousel
+    const wrapper = document.createElement('div');
+    wrapper.className = 'testimonials-carousel-wrapper';
+    
+    // Créer le track
+    const track = document.createElement('div');
+    track.className = 'testimonials-track';
+    
+    // Copier chaque témoignage dans une carte
+    this.originalTestimonials.forEach((testimonial, index) => {
+      const card = document.createElement('div');
+      card.className = 'testimonial-card';
+      card.innerHTML = testimonial.innerHTML;
+      card.dataset.index = index;
+      track.appendChild(card);
+    });
+    
+    wrapper.appendChild(track);
+    
+    // Remplacer le container original
+    this.originalContainer.parentNode.insertBefore(wrapper, this.originalContainer);
+    
+    // Sauvegarder les références
+    this.wrapper = wrapper;
+    this.track = track;
+    this.cards = track.querySelectorAll('.testimonial-card');
+  }
+  
+  calculateDimensions() {
+    // Attendre le rendu pour calculer les dimensions
+    requestAnimationFrame(() => {
+      if (this.cards[0]) {
+        const cardRect = this.cards[0].getBoundingClientRect();
+        const cardStyle = window.getComputedStyle(this.cards[0]);
+        const marginRight = parseInt(cardStyle.marginRight) || 20;
+        
+        this.slideWidth = cardRect.width + marginRight;
+        
+        console.log('TestimonialsCarousel: Dimensions calculées', {
+          cardWidth: cardRect.width,
+          marginRight: marginRight,
+          slideWidth: this.slideWidth
+        });
+      }
+    });
+  }
+  
+  bindEvents() {
+    // Événements tactile (mobile)
+    this.track.addEventListener('touchstart', this.handleStart.bind(this), { passive: true });
+    this.track.addEventListener('touchmove', this.handleMove.bind(this), { passive: false });
+    this.track.addEventListener('touchend', this.handleEnd.bind(this));
+    
+    // Événements souris (test desktop)
+    this.track.addEventListener('mousedown', this.handleStart.bind(this));
+    document.addEventListener('mousemove', this.handleMove.bind(this));
+    document.addEventListener('mouseup', this.handleEnd.bind(this));
+    
+    // Empêcher la sélection de texte
+    this.track.addEventListener('selectstart', e => e.preventDefault());
+    this.track.addEventListener('dragstart', e => e.preventDefault());
+    
+    // Redimensionnement de fenêtre
+    window.addEventListener('resize', this.debounce(() => {
+      if (window.innerWidth <= 590) {
+        this.calculateDimensions();
+        this.goToSlide(this.currentIndex, false);
+      } else {
+        this.destroy();
+      }
+    }, 300));
+  }
+  
+  createDots() {
+    const dotsContainer = document.createElement('div');
+    dotsContainer.className = 'testimonials-dots';
+    
+    for (let i = 0; i < this.totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = `testimonials-dot ${i === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => this.goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+    
+    this.wrapper.appendChild(dotsContainer);
+    this.dots = dotsContainer.querySelectorAll('.testimonials-dot');
+  }
+  
+  handleStart(e) {
+    this.isDragging = true;
+    this.wrapper.classList.add('dragging');
+    
+    const point = e.touches ? e.touches[0] : e;
+    this.startX = point.clientX;
+    this.currentX = this.startX;
+    
+    // Désactiver la transition CSS pendant le drag
+    this.track.style.transition = 'none';
+    
+    if (e.type === 'mousedown') {
+      e.preventDefault();
+    }
+  }
+  
+  handleMove(e) {
+    if (!this.isDragging) return;
+    
+    const point = e.touches ? e.touches[0] : e;
+    this.currentX = point.clientX;
+    
+    const diff = this.currentX - this.startX;
+    const newTranslateX = this.translateX + diff;
+    
+    // Calculer les limites
+    const maxTranslate = 0;
+    const minTranslate = -(this.slideWidth * (this.totalSlides - 1));
+    
+    // Appliquer une résistance aux bords
+    let finalTranslate = newTranslateX;
+    if (newTranslateX > maxTranslate) {
+      finalTranslate = maxTranslate + (newTranslateX - maxTranslate) * 0.3;
+    } else if (newTranslateX < minTranslate) {
+      finalTranslate = minTranslate + (newTranslateX - minTranslate) * 0.3;
+    }
+    
+    this.track.style.transform = `translateX(${finalTranslate}px)`;
+    
+    // Empêcher le scroll vertical sur mobile
+    if (e.touches) {
+      e.preventDefault();
+    }
+  }
+  
+  handleEnd(e) {
+    if (!this.isDragging) return;
+    
+    this.isDragging = false;
+    this.wrapper.classList.remove('dragging');
+    
+    const diff = this.currentX - this.startX;
+    const absDiff = Math.abs(diff);
+    
+    // Déterminer s'il faut changer de slide
+    if (absDiff > this.dragThreshold) {
+      if (diff > 0 && this.currentIndex > 0) {
+        // Glissement vers la droite - slide précédent
+        this.goToSlide(this.currentIndex - 1);
+      } else if (diff < 0 && this.currentIndex < this.totalSlides - 1) {
+        // Glissement vers la gauche - slide suivant
+        this.goToSlide(this.currentIndex + 1);
+      } else {
+        // Limite atteinte, revenir à la position actuelle
+        this.goToSlide(this.currentIndex);
+      }
+    } else {
+      // Mouvement insuffisant, revenir à la position actuelle
+      this.goToSlide(this.currentIndex);
+    }
+  }
+  
+  goToSlide(index, animate = true) {
+    // Vérifier les limites
+    if (index < 0) index = 0;
+    if (index >= this.totalSlides) index = this.totalSlides - 1;
+    
+    this.currentIndex = index;
+    this.translateX = -(this.slideWidth * index);
+    
+    // Appliquer la transformation
+    if (animate) {
+      this.track.style.transition = `transform ${this.animationDuration}ms cubic-bezier(0.25, 0.8, 0.25, 1)`;
+    }
+    
+    this.track.style.transform = `translateX(${this.translateX}px)`;
+    
+    // Mettre à jour les dots
+    this.updateDots();
+    
+    // Nettoyer la transition après l'animation
+    setTimeout(() => {
+      if (this.track) {
+        this.track.style.transition = '';
+      }
+    }, this.animationDuration);
+  }
+  
+  updateDots() {
+    if (!this.dots) return;
+    
+    this.dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === this.currentIndex);
+    });
+  }
+  
+  // Utilitaire pour debounce
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+  
+  // Méthode pour détruire le carousel
+  destroy() {
+    if (this.wrapper) {
+      this.wrapper.remove();
+      console.log('TestimonialsCarousel: Détruit');
+    }
+    
+    // Restaurer la visibilité du container original
+    if (this.originalContainer) {
+      this.originalContainer.style.display = '';
+    }
+  }
+}
+
+// Gestion globale
+let testimonialsCarouselInstance = null;
+
+function initTestimonialsCarousel() {
+  // Nettoyer l'instance existante
+  if (testimonialsCarouselInstance) {
+    testimonialsCarouselInstance.destroy();
+    testimonialsCarouselInstance = null;
+  }
+  
+  // Créer une nouvelle instance pour mobile uniquement
+  if (window.innerWidth <= 590) {
+    testimonialsCarouselInstance = new TestimonialsCarousel();
+  }
+}
+
+// Initialisation au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM chargé - Initialisation du carousel témoignages');
+  initTestimonialsCarousel();
+});
+
+// Gestion du redimensionnement
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    console.log('Redimensionnement - Réinitialisation du carousel témoignages');
+    initTestimonialsCarousel();
+  }, 250);
+});
+
+// Export pour usage externe si nécessaire
+window.TestimonialsCarousel = TestimonialsCarousel;
+
+// Export pour usage externe
+window.ResponsiveCarouselDragDrop = ResponsiveCarouselDragDrop;
+
 
     </script>
 

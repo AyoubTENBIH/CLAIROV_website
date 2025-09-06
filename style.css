@@ -668,7 +668,6 @@ img.vector {
   width: 100%;
 }
 .temoignages .tem-container .mainCol {
-  height: 100%;
   width: 90%;
 }
 .temoignages .tem-container .mainCol .imgs {
@@ -1909,6 +1908,16 @@ footer {
   .produits .container-produits .box-content.desktop-content {
     display: none !important;
   }
+
+  .col1, .col2 {
+    display: none !important;
+  }
+  .temoignages{
+    margin-top: 0 !important;
+  }
+
+
+  
 }
 
 /* Responsive pour très petits écrans */
@@ -1933,5 +1942,183 @@ footer {
     .produits .container .img-part .box h1 {
       font-size: 13px !important;
       padding: 6px 10px !important;
+    }
+  }
+
+/* CSS CAROUSEL TÉMOIGNAGES - MOBILE UNIQUEMENT (≤590px) */
+
+@media (max-width: 590px) {
+  
+  /* Container principal du carousel témoignages */
+  .testimonials-carousel-wrapper {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+    position: relative;
+    padding: 15px 0;
+  }
+  
+  /* Track qui contient et déplace les témoignages */
+  .testimonials-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+    cursor: grab;
+  }
+  
+  .testimonials-track:active {
+    cursor: grabbing;
+  }
+  
+  /* Carte de témoignage individuelle */
+  .testimonial-card {
+    flex: 0 0 85vw;
+    max-width: 320px;
+    margin-right: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .testimonial-card:first-child {
+    margin-left: 7.5vw;
+  }
+  
+  .testimonial-card:last-child {
+    margin-right: 7.5vw;
+  }
+  
+  /* Image étoiles - même style que desktop */
+  .testimonial-card > img {
+    width: 90px !important;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Texte du témoignage - même style que desktop */
+  .testimonial-card > p {
+    font-size: 12px !important;
+    color: #434343 !important;
+    margin: 10px 0 !important;
+    text-align: start !important;
+    line-height: 1.4;
+    flex-grow: 1;
+  }
+  
+  /* Section profil - même style que desktop */
+  .testimonial-card .profile {
+    display: flex !important;
+    align-items: center !important;
+    margin-top: auto;
+  }
+  
+  /* Image de profil - même style que desktop */
+  .testimonial-card .profile > img {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+  }
+  
+  /* Infos profil - même style que desktop */
+  .testimonial-card .profile .profile-info {
+    margin-left: 10px !important;
+  }
+  
+  .testimonial-card .profile .profile-info h3 {
+    font-size: 14px !important;
+    color: black !important;
+    margin: 0 0 2px 0 !important;
+  }
+  
+  .testimonial-card .profile .profile-info p {
+    font-size: 12px !important;
+    color: #444 !important;
+    margin: 0 !important;
+  }
+  
+  /* Navigation par points */
+  .testimonials-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+  
+  .testimonials-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(67, 67, 67, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .testimonials-dot.active {
+    background: #434343;
+    transform: scale(1.4);
+  }
+  
+  /* États pendant le glissement */
+  .testimonials-carousel-wrapper.dragging .testimonial-card * {
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  .testimonials-carousel-wrapper.dragging .testimonials-track {
+    transition: none;
+  }
+  
+  /* Cache la version desktop */
+  .temoignages .tem-reviews {
+    display: none !important;
+  }
+  .temoignages .tem-container {
+    height: auto !important;
+  }
+}
+  
+  /* Responsive très petits écrans */
+  @media (max-width: 360px) {
+    .testimonial-card {
+      flex: 0 0 90vw;
+      margin-right: 15px;
+      min-height: 180px;
+    }
+    
+    .testimonial-card:first-child {
+      margin-left: 5vw;
+    }
+    
+    .testimonial-card:last-child {
+      margin-right: 5vw;
+    }
+    
+    .testimonial-card > img {
+      width: 75px !important;
+    }
+    
+    .testimonial-card > p {
+      font-size: 11px !important;
+    }
+    
+    .testimonial-card .profile > img {
+      width: 35px !important;
+      height: 35px !important;
+    }
+    
+    .testimonial-card .profile .profile-info h3 {
+      font-size: 13px !important;
+    }
+    
+    .testimonial-card .profile .profile-info p {
+      font-size: 11px !important;
     }
   }
