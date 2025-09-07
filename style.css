@@ -172,15 +172,17 @@ header {
   max-width: 45%;
 }
 img.vector {
-  width: 10px;
+  width: 13px;
+  margin-right: 10px;
 }
 .badge {
   display: inline-block;
   background: #9eedd6;
   color: #333;
   font-size: 10px;
-  padding: 5px 10px;
+  padding: 5px 20px;
   border-radius: 20px;
+  width: max-content;
   margin-bottom: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre simple et moderne */
 }
@@ -617,9 +619,11 @@ img.vector {
 }
 
 .box-content .box {
-  flex: 1 1 calc(33.333% - 20px);
+  flex: 1 1 calc(33.333% - 30px);
   box-sizing: border-box;
   width: 250px;
+  height: 250px;
+  border-radius: 40px;
   position: relative;
   background-color: transparent;
   border-radius: 40px;
@@ -657,7 +661,8 @@ img.vector {
 .produits .container-produits .box-content .box img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
+  border-radius: 30px;
 }
 /* état caché */
 .box-content .box.hide {
@@ -1001,7 +1006,7 @@ img.vector {
   margin-bottom: 15px;
   color: #292929;
   font-size: 1.1rem;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .vision-list .vs img {
@@ -1396,9 +1401,11 @@ footer {
     font-size: 10px;
   }
   .hero .badge {
-    font-size: 8px;
+    font-size: 10px;
     padding: 4px 8px;
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
   }
   .hero .vector {
     width: 10px;
