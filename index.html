@@ -35,10 +35,14 @@
   </div>
   </header>
   <nav class="mobile-nav" id="mobile-nav">
-  <a href="#">Accueil</a>
-  <a href="#">Services</a>
-  <a href="#">Produits</a>
-  <a href="#">Contact</a>
+  <button class="close-btn" id="close-btn">&times;</button>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#propos">À propos</a>
+        <a href="#produits">Produits</a>
+        <a href="#temoignage">Témoignages</a>
+        <a href="#contact">Contact</a>
+        <a href="#blog">Blog</a>
 </nav>
 
   <!-- Hero Section -->
@@ -597,8 +601,7 @@
         </ul>
       </div>
       <div class="vision-image">
-        <img src="images/eye-anatomie.png" alt="">
-      </div>
+        <img  src="images/eye-anatomie.png" alt="">      </div>
     </section>
 
     <section class="blog-section" id="blog">
@@ -663,7 +666,7 @@
     <img src="images/logo.png" alt="Clairov logo">
     <p>© 2025 by CLAIROV group</p>
     <p>
-      <a href="#">terms of service</a> | 
+      <a href="#">terms of service</a>
       <a href="#">privacy policy</a>
     </p>
   </div>
@@ -696,6 +699,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <script>
+
       const navLinks = document.querySelectorAll(".nav-link");
       const boxes = document.querySelectorAll(".box-content .box");
       const ctaButton = document.getElementById("voir-produits"); // nouveau bouton spécifique
@@ -1958,6 +1962,31 @@ window.TestimonialsCarousel = TestimonialsCarousel;
 
 // Export pour usage externe
 window.ResponsiveCarouselDragDrop = ResponsiveCarouselDragDrop;
+
+const menIcon = document.getElementById('menu-icon');
+const mobieNav = document.getElementById('mobile-nav');
+const closeBtn = document.getElementById('close-btn');
+const navLink = mobileNav.querySelectorAll('a'); // tous les liens
+
+// Ouvrir menu
+menIcon.addEventListener('click', () => {
+  menIcon.classList.toggle('open');
+  mobieNav.classList.add('active');
+});
+
+// Fermer menu avec bouton close
+closeBtn.addEventListener('click', () => {
+  mobieNav.classList.remove('active');
+  menIcon.classList.remove('open');
+});
+
+// Fermer menu quand un lien est cliqué
+navLink.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('active');
+    menIcon.classList.remove('open');
+  });
+});
 
 
     </script>
