@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comment choisir vos lunettes</title>
+  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Lato", sans-serif;
+      line-height: 1.6;
+      background: #E4E6EB;
+      color: #033144;
+    }
+
+    .article-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* HERO */
+    .article-hero {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+      margin-top: 100px;
+    }
+
+    .article-hero img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    /* ARTICLE */
+    .article-content h2 {
+      margin: 40px 0 20px;
+      font-size: 1.6rem;
+      color: #033144;
+    }
+
+    .article-content p,
+    .article-content ul {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* CARDS */
+    .article-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .article-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .article-card h3 {
+      color: #4DB6E5;
+      margin-bottom: 10px;
+    }
+
+    /* CRITERIA */
+    .article-criteria {
+      list-style: none;
+      padding: 0;
+    }
+
+    .article-criteria li {
+      background: #A6E3D1;
+      margin: 10px 0;
+      padding: 12px 16px;
+      border-radius: 8px;
+    }
+
+    /* CTA */
+    .article-cta {
+      text-align: center;
+      margin: 60px 0;
+      padding: 40px;
+      background: #FFD966;
+      border-radius: 15px;
+    }
+
+    .article-cta-btn {
+      background: #033144;
+      color: #fff;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .article-cta-btn:hover {
+      background: #4DB6E5;
+    }
+
+    /* FOOTER ARTICLE */
+    .article-footer {
+      text-align: center;
+      padding: 20px;
+      background: #033144;
+      color: white;
+      font-size: 0.9rem;
+      border-radius: 25px 25px 0 0;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .article-content h2 {
+        font-size: 1.3rem;
+      }
+      .article-hero img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="Clairov Logo">
+    </div>
+<nav>
+  <ul>
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#propos">À propos</a></li>
+    <li><a href="index.html#produits">Produits</a></li>
+    <li><a href="index.html#temoignage">Témoignages</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+  </ul>
+</nav>
+    <div class="menu-icon" id="menu-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+  <button class="close-btn" id="close-btn">&times;</button>
+  <a href="index.html#home">Home</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#propos">À propos</a>
+  <a href="index.html#produits">Produits</a>
+  <a href="index.html#temoignage">Témoignages</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="index.html#blog">Blog</a>
+</nav>
+
+  <!-- HERO IMAGE -->
+  <section class="article-hero">
+    <img src="images/choix_lunette.png" alt="Image 3D lunettes" />
+  </section>
+
+  <!-- ARTICLE -->
+  <main class="article-content article-container">
+    <h2>Pourquoi le choix de vos lunettes est essentiel</h2>
+    <p>
+      Les lunettes ne sont pas seulement un accessoire de mode, elles jouent un rôle clé dans la correction
+      de votre vision et la protection de vos yeux. Des lunettes bien choisies peuvent améliorer votre confort
+      quotidien et mettre en valeur votre personnalité.
+    </p>
+
+    <h2>Choisir ses lunettes selon la forme du visage</h2>
+    <div class="article-cards">
+      <div class="article-card">
+        <h3>Visage rond</h3>
+        <p>Optez pour des montures rectangulaires ou carrées afin d’allonger et structurer votre visage.</p>
+      </div>
+      <div class="article-card">
+        <h3>Visage carré</h3>
+        <p>Les montures rondes ou ovales adoucissent vos traits et apportent un équilibre harmonieux.</p>
+      </div>
+      <div class="article-card">
+        <h3>Visage ovale</h3>
+        <p>Toutes les formes conviennent ! Variez les styles pour exprimer votre personnalité.</p>
+      </div>
+      <div class="article-card">
+        <h3>Visage en cœur</h3>
+        <p>Choisissez des montures légères et ovales qui équilibrent le front et le menton.</p>
+      </div>
+    </div>
+
+    <h2>Autres critères à prendre en compte</h2>
+    <ul class="article-criteria">
+      <li><strong>Style de vie :</strong> privilégiez des lunettes solides et légères si vous êtes actif.</li>
+      <li><strong>Teint :</strong> les couleurs chaudes pour les peaux dorées, tons froids pour les peaux claires.</li>
+      <li><strong>Besoins visuels :</strong> verres anti-lumière bleue, progressifs ou photochromiques.</li>
+    </ul>
+
+    <div class="article-cta">
+      <h2>Besoin d’aide pour choisir vos lunettes ?</h2>
+      <p>Contactez notre équipe d’opticiens pour des conseils personnalisés et trouvez les lunettes parfaites.</p>
+      <a href="https://wa.me/+212661835800" target="_blank"><button class="article-cta-btn">Contactez-nous</button></a>
+    </div>
+  </main>
+
+  <!-- FOOTER ARTICLE -->
+   <footer>
+  <!-- Section gauche -->
+  <div class="footer-left">
+    <img src="images/logo.png" alt="Clairov logo">
+    <p>© 2025 by CLAIROV group</p>
+    <p>
+      <a href="#">terms of service</a>
+      <a href="#">privacy policy</a>
+    </p>
+  </div>
+
+  <!-- Section centre -->
+  <div class="footer-links">
+   <a href="index.html#home">Home</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#propos">À propos</a>
+  <a href="index.html#produits">Produits</a>
+  <a href="index.html#temoignage">Témoignages</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="index.html#blog">Blog</a>
+  </div>
+
+  <!-- Section droite -->
+  <div class="footer-right">
+    <h4>Get in touch</h4>
+    <p>question or feedback<br>we’d love to hear from you</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+
+</footer>
+
+  <script>
+
+const menuIcon = document.getElementById('menu-icon');
+const mobileNav = document.getElementById('mobile-nav');
+const closeBtn = document.getElementById('close-btn');
+const navLinks = mobileNav.querySelectorAll('a'); // tous les liens
+
+// Ouvrir menu
+menuIcon.addEventListener('click', () => {
+  menuIcon.classList.toggle('open');
+  mobileNav.classList.add('active');
+});
+
+// Fermer menu avec bouton close
+closeBtn.addEventListener('click', () => {
+  mobileNav.classList.remove('active');
+  menuIcon.classList.remove('open');
+});
+
+// Fermer menu quand un lien est cliqué
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('active');
+    menuIcon.classList.remove('open');
+  });
+});
+  </script>
+</body>
+</html>

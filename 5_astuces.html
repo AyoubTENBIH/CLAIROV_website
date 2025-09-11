@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez 5 astuces pour protéger vos yeux au quotidien, avec des conseils d'opticien et des méthodes simples pour préserver votre santé visuelle.">
+  <title>5 Astuces pour Protéger Vos Yeux</title>
+    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset et global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background-color: #E4E6EB;
+      color: #033144;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Container principal */
+    .blog_container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header */
+    .article_header {
+      text-align: center;
+      padding-bottom: 2rem;
+    }
+    .article_header h1 {
+      font-size: 2.5rem;
+      color: #033144;
+      margin-bottom: 1rem;
+    }
+    .article_header p {
+      font-size: 1.1rem;
+      color: #4DB6E5;
+    }
+
+    /* Section image principale */
+    .main-image {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+    }
+    .main-image img {
+     width: 80%;
+     height: 100%;
+     object-fit: fill;
+    }
+
+    /* Contenu principal */
+    article {
+      background-color: #FFFFFF;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    article h2 {
+      color: #033144;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    article h3 {
+      color: #FFD966;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    article p {
+      margin-bottom: 1rem;
+      color: #033144;
+    }
+    article .tip {
+      background-color: #D9D9D9;
+      padding: 0.8rem 1rem;
+      border-left: 4px solid #4DB6E5;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    /* Deuxième image */
+    .secondary-image {
+      width: 100%;
+      height: 200px;
+      background-color: #FFD966;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      color: #033144;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .article_header h1 {
+        font-size: 2rem;
+      }
+      article h2 {
+        font-size: 1.5rem;
+      }
+      article h3 {
+        font-size: 1.2rem;
+      }
+      .main-image, .secondary-image {
+        height: 200px;
+        font-size: 1rem;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .blog_container {
+        padding: 1rem;
+      }
+    }
+    /* Container Conclusion */
+.conclusion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  background-color: #E4E6EB; /* fond doux */
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin: 2rem 0;
+}
+
+/* Texte */
+.conclusion .text {
+  flex: 1;
+}
+
+.conclusion .text h2 {
+  font-size: 2rem;
+  color: #033144;
+  margin-bottom: 1rem;
+}
+
+.conclusion .text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #033144;
+}
+
+/* Image */
+.conclusion .second-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conclusion .second-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+/* Responsive pour tablettes */
+@media (max-width: 992px) {
+  .conclusion {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .conclusion .second-image img {
+    max-width: 80%;
+  }
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 576px) {
+  .conclusion .text h2 {
+    font-size: 1.6rem;
+  }
+
+  .conclusion .text p {
+    font-size: 1rem;
+  }
+
+  .conclusion .second-image img {
+    max-width: 100%;
+  }
+}
+/* Container Styles */
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+            font-family: "Arial", sans-serif;
+            overflow: visible;
+        }
+
+        /* Button Styles */
+        .button-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding:3px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+
+        .button-content:active {
+            transform: translateY(-2px) scale(0.98);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .button-content:hover .text {
+            letter-spacing: 1px;
+        }
+
+        /* Tooltip Styles */
+        .tooltip-content {
+            position: absolute;
+            top: 102%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.8);
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition:
+                opacity 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                visibility 0.5s ease;
+            z-index: 100;
+            pointer-events: none;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            min-width: 320px;
+        }
+
+        .tooltip-container:hover .tooltip-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+            pointer-events: auto;
+        }
+
+        /* Social Icons Styles */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .social-title {
+            font-size: 10px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            transition:
+                transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                background 0.3s ease,
+                box-shadow 0.4s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .social-icon img {
+            width: 28px;
+            height: 28px;
+            transition:
+                transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                filter 0.3s ease;
+            z-index: 1;
+        }
+
+
+        .social-icon:active {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .button-content {
+            animation: pulse 3s infinite;
+        }
+
+
+        .button-content::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: inherit;
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        /* Tooltip Arrow */
+        .tooltip-content::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 0 10px 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent rgba(255, 255, 255, 0.95) transparent;
+            filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tooltip-content {
+                min-width: 280px;
+                padding: 15px;
+            }
+
+            .social-icons {
+                gap: 10px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .social-icon img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .social-title {
+                font-size: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tooltip-content {
+                min-width: 240px;
+            }
+
+            .social-icons {
+                gap: 8px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .social-icon img {
+                width: 22px;
+                height: 22px;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .tooltip-content {
+                background: rgba(30, 30, 30, 0.95);
+                color: white;
+            }
+
+            .tooltip-content::before {
+                border-color: transparent transparent rgba(30, 30, 30, 0.95) transparent;
+            }
+
+            .social-icon {
+                background: #2a2a2a;
+            }
+
+            .social-title {
+                color: #e0e0e0;
+            }
+        }
+
+  </style>
+</head>
+<body>
+    <header class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="Clairov Logo">
+    </div>
+<nav>
+  <ul>
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#propos">À propos</a></li>
+    <li><a href="index.html#produits">Produits</a></li>
+    <li><a href="index.html#temoignage">Témoignages</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+  </ul>
+</nav>
+    <div class="menu-icon" id="menu-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+  <button class="close-btn" id="close-btn">&times;</button>
+  <a href="index.html#home">Home</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#propos">À propos</a>
+  <a href="index.html#produits">Produits</a>
+  <a href="index.html#temoignage">Témoignages</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="index.html#blog">Blog</a>
+</nav>
+  <div class="blog_container">
+    <!-- Header -->
+    <div class="article_header">
+      <h1>5 Astuces pour Protéger Vos Yeux au Quotidien</h1>
+      <p>Conseils d'opticien et prévention pour une santé visuelle optimale</p>
+    </div>
+
+    <!-- Image principale -->
+    <div class="main-image">
+     <img src="images/5_astuces_blog.png" alt="">
+    </div>
+
+    <!-- Contenu -->
+    <article>
+      <h2>Introduction</h2>
+      <p>La santé visuelle est essentielle pour notre bien-être. Nos yeux, constamment sollicités par les écrans, la lumière artificielle et l’environnement extérieur, méritent une attention particulière. Adopter quelques gestes simples peut vous aider à préserver votre vision et éviter la fatigue oculaire. Voici 5 astuces efficaces pour protéger vos yeux au quotidien, conseillées par des opticiens et experts en santé visuelle.</p>
+
+      <h3>1. Limitez le temps devant les écrans</h3>
+      <p>Aujourd’hui, entre smartphones, ordinateurs et télévisions, nos yeux sont surexposés à la lumière bleue. Cela entraîne fatigue visuelle, sécheresse oculaire et parfois des maux de tête.</p>
+      <div class="tip">👉 Appliquez la règle du 20-20-20 : toutes les 20 minutes, regardez un objet situé à 20 pieds (6 mètres) pendant 20 secondes. Cela permet de relâcher vos muscles oculaires.</div>
+
+      <h3>2. Portez des lunettes adaptées</h3>
+      <p>Des lunettes avec filtre anti-lumière bleue ou des lentilles de protection peuvent réduire considérablement l’impact des écrans. Même si vous n’avez pas de problème de vue, des lunettes de repos peuvent protéger vos yeux.</p>
+      <div class="tip">👉 Demandez conseil à un opticien pour choisir des verres adaptés à vos besoins et à votre mode de vie.</div>
+
+      <h3>3. Adoptez une bonne hygiène visuelle</h3>
+      <p>Un geste simple : cligner des yeux régulièrement. Cela évite la sécheresse et favorise une bonne lubrification.</p>
+      <div class="tip">👉 Utilisez des larmes artificielles si vous travaillez longtemps devant un écran ou dans un environnement climatisé.</div>
+
+      <h3>4. Protégez vos yeux du soleil</h3>
+      <p>Les rayons UV sont dangereux non seulement pour la peau, mais aussi pour les yeux.</p>
+      <div class="tip">👉 Portez toujours des lunettes de soleil certifiées UV400 lorsque vous sortez, même par temps nuageux. Cela prévient le vieillissement prématuré de la rétine et réduit le risque de maladies oculaires.</div>
+
+      <h3>5. Ayez une alimentation équilibrée</h3>
+      <p>Certains nutriments sont indispensables pour la santé visuelle :</p>
+      <ul>
+        <li>Vitamine A (carottes, patates douces) pour la vision nocturne</li>
+        <li>Oméga-3 (poissons gras) pour éviter la sécheresse oculaire</li>
+        <li>Vitamine C et E (fruits, légumes) pour lutter contre le vieillissement des yeux</li>
+      </ul>
+      <div class="tip">👉 Une bonne alimentation est votre alliée pour préserver une vision claire et durable.</div>
+      <div class="conclusion">
+        <div class="text">
+            <h2>Conclusion</h2>
+            <p>Prendre soin de vos yeux ne demande pas beaucoup d’efforts, mais cela peut faire une grande différence sur le long terme. Adoptez ces 5 astuces simples et consultez régulièrement un opticien ou un ophtalmologiste pour un contrôle visuel. Votre vision est précieuse, protégez-la dès aujourd’hui.</p>
+        </div>
+            <div class="second-image">
+                <img src="images/5_astuces_conclusion_blog.png" alt="">
+            </div>
+      </div>
+     
+    </article>
+        <footer>
+  <!-- Section gauche -->
+  <div class="footer-left">
+    <img src="images/logo.png" alt="Clairov logo">
+    <p>© 2025 by CLAIROV group</p>
+    <p>
+      <a href="#">terms of service</a>
+      <a href="#">privacy policy</a>
+    </p>
+  </div>
+
+  <!-- Section centre -->
+  <div class="footer-links">
+      <a href="index.html#home">Home</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#propos">À propos</a>
+  <a href="index.html#produits">Produits</a>
+  <a href="index.html#temoignage">Témoignages</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="index.html#blog">Blog</a>
+
+  </div>
+
+  <!-- Section droite -->
+  <div class="footer-right">
+    <h4>Get in touch</h4>
+    <p>question or feedback<br>we’d love to hear from you</p>
+    <div class="social-icons">
+      <a href="https://wa.me/+212661835800" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.facebook.com/CLAIROV" target="_blank"><i class="fab fa-facebook"></i></a>
+      <!-- From Uiverse.io by Mohammad-Rahme-576 --> 
+<div class="tooltip-container">
+        <div class="button-content">
+            <span class="text"><i class="fab fa-instagram"></i></span>
+        </div>
+        <div class="tooltip-content">
+            <div class="social-icons">
+                <a href="#" class="social-item twitter">
+                    <div class="social-title">agadir</div>
+                    <div class="social-icon">
+                        <img src="images/clairov_eye.png" alt="Twitter">
+                    </div>
+                </a>
+                <a href="#" class="social-item facebook">
+                    <div class="social-title">massa</div>
+                    <div class="social-icon">
+                        <img src="images/clairov_eye.png" alt="Facebook">
+                    </div>
+                </a>
+                <a href="#" class="social-item linkedin">
+                    <div class="social-title">oulad taima</div>
+                    <div class="social-icon">
+                        <img src="images/clairov_eye.png" alt="LinkedIn">
+                    </div>
+                </a>
+                <a href="#" class="social-item instagram">
+                    <div class="social-title">el jadida</div>
+                    <div class="social-icon">
+                        <img src="images/clairov_eye.png" alt="Instagram">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+
+</footer>
+
+  </div>
+<script>    
+
+const menuIcon = document.getElementById('menu-icon');
+const mobileNav = document.getElementById('mobile-nav');
+const closeBtn = document.getElementById('close-btn');
+const navLinks = mobileNav.querySelectorAll('a'); // tous les liens
+
+// Ouvrir menu
+menuIcon.addEventListener('click', () => {
+  menuIcon.classList.toggle('open');
+  mobileNav.classList.add('active');
+});
+
+// Fermer menu avec bouton close
+closeBtn.addEventListener('click', () => {
+  mobileNav.classList.remove('active');
+  menuIcon.classList.remove('open');
+});
+
+// Fermer menu quand un lien est cliqué
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('active');
+    menuIcon.classList.remove('open');
+  });
+});
+
+</script>
+
+  
+
+</body>
+</html>
