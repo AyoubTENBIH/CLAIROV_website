@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Sitemap: https://clairov.app/sitemap.xml
+
+# Bloque les fichiers techniques
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /*.json
